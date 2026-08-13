@@ -12,5 +12,10 @@ public class Game {
     private Board board;
     private Player x;
     private Player o;
-
+    
+    public Game() {
+        o = new Player('o');
+        x = new Player('x');
+        showWelcome();
+    }
 }
