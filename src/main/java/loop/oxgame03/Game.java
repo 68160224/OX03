@@ -18,4 +18,13 @@ public class Game {
         x = new Player('x');
         showWelcome();
     }
+    
+    public void play() {
+        board = new Board(o, x);
+        while (!board.checkWin()) {
+            showBoard();
+            showTurn();
+            inputRowCol();
+        }
+    }
 }
