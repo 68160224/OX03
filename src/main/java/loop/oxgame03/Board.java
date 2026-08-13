@@ -70,7 +70,7 @@ public class Board {
     }
     
     public boolean checkRowCol(int row, int col) {
-        if (table[row][col] == '-') {
+        if (table[row - 1][col - 1] == '-') {
             return true;
         } else {
             return false;
