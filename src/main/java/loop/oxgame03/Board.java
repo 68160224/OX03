@@ -40,4 +40,32 @@ public class Board {
             this.currentPlayer = o;
         }
     }
+    
+    public boolean checkWin() {
+        char[][] table = getTable();
+        for (int fix = 0; fix < table.length; fix++) {
+            int horizontal = 0;
+            int vertical = 0;
+            int diagonal = 0;
+            int reverseDiagonal = 0;
+            for (int move = 0; move < table.length; move++) {
+                if (table[fix][move] == currentPlayer.getName()) {
+                    horizontal++;
+                }
+                if (table[move][fix] == currentPlayer.getName()) {
+                    vertical++;
+                }
+                if (table[move][move] == currentPlayer.getName()) {
+                    diagonal++;
+                }
+                if (table[move][2 - move] == currentPlayer.getName()) {
+                    reverseDiagonal++;
+                }
+            }
+            if ((horizontal == 3) || (vertical == 3) || (diagonal == 3) || (reverseDiagonal == 3)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
