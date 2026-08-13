@@ -24,10 +24,11 @@ public class Game {
     
     public void play() {
         board = new Board(o, x);
-        while (!board.checkWin()) {
+        for (int i = 1; i < 10; i++) {
             showBoard();
             showTurn();
             inputRowCol();
+            printWin();
         }
     }
     private void showWelcome() {
@@ -55,5 +56,11 @@ public class Game {
         int col = input.nextInt();
         board.setRowCol(row, col);
         board.switchPlayer();
+    }
+    
+    private void printWin() {
+        if (board.checkWin()) {
+            System.out.println(board.getCurrentPlayer() + " Win!");
+        }
     }
 }
