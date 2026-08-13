@@ -8,6 +8,9 @@ package loop.oxgame03;
  *
  * @author Windows
  */
+
+import java.util.*;
+
 public class Game {
     private Board board;
     private Player x;
