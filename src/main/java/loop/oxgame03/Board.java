@@ -72,4 +72,12 @@ public class Board {
         }
         return false;
     }
+    
+    public boolean checkRowCol(int row, int col) {
+        if (table[row][col] == '-') {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
