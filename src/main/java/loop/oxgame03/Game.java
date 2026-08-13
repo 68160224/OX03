@@ -28,8 +28,14 @@ public class Game {
             showBoard();
             showTurn();
             inputRowCol();
-            printWin();
+            if (board.checkWin()) {
+                showBoard();
+                printWin();
+                break;
+            }
+            board.switchPlayer();
         }
+        printDraw();
     }
     private void showWelcome() {
         System.out.println("Welcome to OX Game");
@@ -55,12 +61,15 @@ public class Game {
         int row = input.nextInt();
         int col = input.nextInt();
         board.setRowCol(row, col);
-        board.switchPlayer();
     }
     
     private void printWin() {
-        if (board.checkWin()) {
-            System.out.println(board.getCurrentPlayer() + " Win!");
+        System.out.println(board.getCurrentPlayer().getName() + " Win!");
+    }
+    
+    private void printDraw() {
+        if (!board.checkWin()) {
+            System.out.println("DRAW!");
         }
     }
 }
