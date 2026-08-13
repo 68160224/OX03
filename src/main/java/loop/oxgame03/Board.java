@@ -14,4 +14,11 @@ public class Board {
     {'-', '-', '-'}};
     private Player currentPlayer;
     private Player o, x;
+    
+    public Board(Player o, Player x) {
+        this.o = o;
+        this.x = x;
+        this.currentPlayer = o;
+    }
+
 }
