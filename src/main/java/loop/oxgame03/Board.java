@@ -28,6 +28,10 @@ public class Board {
     public void setRowCol(int row, int col) {
         this.table[row - 1][col - 1] = currentPlayer.getName();
     }
+    
+    public char getRowCol(int row, int col) {
+        return table[row][col];
+    }
 
     public Player getCurrentPlayer() {
         return currentPlayer;
