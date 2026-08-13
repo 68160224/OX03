@@ -27,4 +27,7 @@ public class Game {
             inputRowCol();
         }
     }
+    private void showWelcome() {
+        System.out.println("Welcome to OX Game");
+    }
 }
