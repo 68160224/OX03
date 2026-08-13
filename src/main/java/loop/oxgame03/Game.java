@@ -60,6 +60,7 @@ public class Game {
         System.out.print("Please input row, col: ");
         int row = input.nextInt();
         int col = input.nextInt();
+        if (board.get)
         board.setRowCol(row, col);
     }
     
