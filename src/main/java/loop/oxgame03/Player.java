@@ -9,5 +9,19 @@ package loop.oxgame03;
  * @author Windows
  */
 public class Player {
+    private char name;
+    private int win;
+    private int lose;
+    private int draw;
     
+    public Player(char name, int win, int lose, int draw) {
+        this.name = name;
+        this.win = win;
+        this.lose = lose;
+        this.draw = draw;
+    }
+    
+    public Player(char name) {
+        this.name = name;
+    }
 }

@@ -9,5 +9,9 @@ package loop.oxgame03;
  * @author Windows
  */
 public class Board {
-    
+    private char[][] table = {{'-', '-', '-'},
+    {'-', '-', '-'},
+    {'-', '-', '-'}};
+    private Player currentPlayer;
+    private Player o, x;
 }
