@@ -32,4 +32,12 @@ public class Board {
     public Player getCurrentPlayer() {
         return currentPlayer;
     }
+    
+    public void switchPlayer() {
+        if (this.currentPlayer == o) {
+            this.currentPlayer = x;
+        } else {
+            this.currentPlayer = o;
+        }
+    }
 }
