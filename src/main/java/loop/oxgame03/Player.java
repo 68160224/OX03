@@ -24,4 +24,37 @@ public class Player {
     public Player(char name) {
         this.name = name;
     }
+    
+    public void setName(char name) {
+        this.name = name;
+    }
+
+    public int getWin() {
+        return win;
+    }
+
+    public void setWin(int win) {
+        this.win = win;
+    }
+
+    public int getLose() {
+        return lose;
+    }
+
+    public void setLose(int lose) {
+        this.lose = lose;
+    }
+
+    public int getDraw() {
+        return draw;
+    }
+
+    public void setDraw(int draw) {
+        this.draw = draw;
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" + "name=" + name + ", win=" + win + ", lose=" + lose + ", draw=" + draw + '}';
+    }
 }
