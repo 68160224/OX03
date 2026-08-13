@@ -20,5 +20,16 @@ public class Board {
         this.x = x;
         this.currentPlayer = o;
     }
+    
+    public char[][] getTable() {
+        return table;
+    }
 
+    public void setRowCol(int row, int col) {
+        this.table[row - 1][col - 1] = currentPlayer.getName();
+    }
+
+    public Player getCurrentPlayer() {
+        return currentPlayer;
+    }
 }
