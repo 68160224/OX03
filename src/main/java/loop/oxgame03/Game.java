@@ -40,5 +40,9 @@ public class Game {
             System.out.println();
         }
     }
+    
+    private void showTurn() {
+        System.out.println("Turn " + board.getCurrentPlayer().getName());
+    }
 
 }
