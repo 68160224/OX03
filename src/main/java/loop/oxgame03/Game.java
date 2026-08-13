@@ -30,4 +30,15 @@ public class Game {
     private void showWelcome() {
         System.out.println("Welcome to OX Game");
     }
+    
+    private void showBoard() {
+        char[][] table = board.getTable();
+        for (int row = 0; row < table.length; row++) {
+            for (int col = 0; col < table.length; col++) {
+                System.out.print(table[row][col]);
+            }
+            System.out.println();
+        }
+    }
+
 }
