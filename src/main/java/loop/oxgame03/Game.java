@@ -44,5 +44,13 @@ public class Game {
     private void showTurn() {
         System.out.println("Turn " + board.getCurrentPlayer().getName());
     }
-
+    
+    private void inputRowCol() {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Please input row, col: ");
+        int row = input.nextInt();
+        int col = input.nextInt();
+        board.setRowCol(row, col);
+        board.switchPlayer();
+    }
 }
