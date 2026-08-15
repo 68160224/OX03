@@ -9,18 +9,19 @@ package loop.oxgame03;
  * @author Windows
  */
 public class Board {
+
     private char[][] table = {{'-', '-', '-'},
     {'-', '-', '-'},
     {'-', '-', '-'}};
     private Player currentPlayer;
     private Player o, x;
-    
+
     public Board(Player o, Player x) {
         this.o = o;
         this.x = x;
         this.currentPlayer = o;
     }
-    
+
     public char[][] getTable() {
         return table;
     }
@@ -32,7 +33,7 @@ public class Board {
     public Player getCurrentPlayer() {
         return currentPlayer;
     }
-    
+
     public void switchPlayer() {
         if (this.currentPlayer == o) {
             this.currentPlayer = x;
@@ -40,7 +41,7 @@ public class Board {
             this.currentPlayer = o;
         }
     }
-    
+
     public boolean checkWin() {
         char[][] table = getTable();
         for (int fix = 0; fix < table.length; fix++) {
@@ -68,12 +69,28 @@ public class Board {
         }
         return false;
     }
-    
+
     public boolean checkRowCol(int row, int col) {
         if (table[row - 1][col - 1] == '-') {
             return true;
         } else {
             return false;
         }
+    }
+
+    public void updateScore() {
+        if (checkWin() == true) {
+            if (currentPlayer == o) {
+                o.setWin(o.getWin() + 1);
+                x.setLose(x.getLose() + 1);
+            } else {
+                x.setWin(x.getWin() + 1);
+                o.setLose(o.getLose() + 1);
+            }
+        } else {
+            o.setDraw(o.getDraw() + 1);
+            x.setDraw(x.getDraw() + 1);
+        }
+
     }
 }

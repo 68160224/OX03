@@ -23,27 +23,34 @@ public class Game {
     }
 
     public void play() {
-        board = new Board(o, x);
-        for (int i = 1; i < 10; i++) {
-            showBoard();
-            showTurn();
-            inputRowCol();
-            System.out.println(i);
-            if (board.checkWin()) {
+        Scanner input = new Scanner(System.in);
+        char play = 'Y';
+        while (play == 'Y') {
+            board = new Board(o, x);
+            for (int i = 1; i < 10; i++) {
                 showBoard();
-                printWin();
-                break;
+                showTurn();
+                inputRowCol();
+                if (board.checkWin()) {
+                    showBoard();
+                    printWin();
+                    break;
+                }
+                board.switchPlayer();
             }
-            board.switchPlayer();
+            printDraw();
+            board.updateScore();
+            printScore();
+            System.out.print("Play again(Y/N): ");
+            play = input.next().charAt(0);
         }
-        printDraw();
     }
 
-    private void showWelcome() {
+    public void showWelcome() {
         System.out.println("Welcome to OX Game");
     }
 
-    private void showBoard() {
+    public void showBoard() {
         char[][] table = board.getTable();
         for (int row = 0; row < table.length; row++) {
             for (int col = 0; col < table.length; col++) {
@@ -53,11 +60,11 @@ public class Game {
         }
     }
 
-    private void showTurn() {
+    public void showTurn() {
         System.out.println("Turn " + board.getCurrentPlayer().getName());
     }
 
-    private void inputRowCol() {
+    public void inputRowCol() {
         Scanner input = new Scanner(System.in);
         while (true) {
             System.out.print("Please input row, col: ");
@@ -72,13 +79,18 @@ public class Game {
         }
     }
 
-    private void printWin() {
+    public void printWin() {
         System.out.println(board.getCurrentPlayer().getName() + " Win!");
     }
 
-    private void printDraw() {
+    public void printDraw() {
         if (!board.checkWin()) {
             System.out.println("DRAW!");
         }
+    }
+
+    public void printScore() {
+        System.out.println(o.toString());
+        System.out.println(x.toString());
     }
 }
